@@ -3,24 +3,37 @@
  * @param {number} target
  * @return {number}
  */
-var searchInsert = function (nums, target) {
-  
-  for(let i=0;i<nums.length;i++){
-
-   if(target==nums[i]){
-    return i
-   }
-
-   else if(target<nums[0]){
-    return 0
-   }
-
-   else if(nums[i]<target && nums[i+1]>target){
-    return i+1
-   }
-
-
+var searchInsert = function(nums, target) {
+    let low=0
+    let high=(nums.length)-1
+    
+  if(nums[high]<target){
+    return nums.length
   }
-let ans =(nums.length)
-return ans
+
+
+
+  if(nums[0]>target){
+    return 0
+  }
+
+
+    while(low<=high){
+        let mid =Math.floor((low+high)/2)
+
+        if(nums[mid]==target){
+            return mid
+        }
+
+else if (nums[mid]<target && nums[mid+1]>target){
+    return mid+1
+}
+        else if(nums[mid]<target){
+            low=mid+1
+        }
+        else if(nums[mid]>target){
+            high=mid-1
+        }
+    }
+
 };
