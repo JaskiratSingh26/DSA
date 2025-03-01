@@ -22,11 +22,14 @@ if(ans=='noans'){
     return ""
 }
 else{
-    for(let i=0;i<=ans;i++){
-    array.push(data[i])
+//     for(let i=0;i<=ans;i++){
+//     array.push(data[i])
 
-}
-  return array.join('')
+// }
+//   return array.join('')
+
+array=data.slice(0,ans+1)
+return array.join('')
   
 }
 
