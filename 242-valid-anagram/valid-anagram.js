@@ -20,7 +20,7 @@
         }
     }
 
-    for (let i = 0; i < t.length; i++) { // Corrected line
+    for (let i = 0; i < s.length; i++) { // Corrected line
         if (map2.has(t[i])) {
             map2.set(t[i], map2.get(t[i]) + 1);
         } else {
