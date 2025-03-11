@@ -15,29 +15,55 @@ var getIntersectionNode = function (headA, headB) {
 
     let tempA = headA
     let tempB = headB
-    let map = new Map()
 
+    let countA = 1
+    let countB = 1
     while (tempA) {
-
-
-        map.set(tempA)
-
-
+        countA++
         tempA = tempA.next
+    }
+    while (tempB) {
+        countB++
+        tempB = tempB.next
+    }
+    tempA = headA
+    tempB = headB
+
+    let result = null
+    if (countA >= countB) {
+        result = countA - countB
+
+        for (let i = result; i > 0; i--) {
+            tempA = tempA.next
+        }
+
+        while (tempA) {
+            if (tempA == tempB) return tempB
+            tempB = tempB.next
+            tempA = tempA.next
+
+        }
+
+    
 
 
 
     }
-
-
-    while (tempB) {
-        if (map.has(tempB)){
-            return tempB
+    else {
+        result = countB - countA
+        for (let i = result; i > 0; i--) {
+            tempB = tempB.next
         }
 
-        tempB=tempB.next
+        while (tempB) {
+            if (tempB == tempA) return tempB
+            tempB = tempB.next
+            tempA = tempA.next
 
-  }
+        }
+
+
+    }
+
     return null
-
 };
