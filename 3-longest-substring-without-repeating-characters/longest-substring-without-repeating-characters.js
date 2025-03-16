@@ -4,37 +4,32 @@
  */
 var lengthOfLongestSubstring = function (s) {
 
-    let arr = []
-    let final = []
+    let start = 0
+    let end = 0
+    let maxlength=0
 
-    for (let i = 0; i < s.length; i++) {
+    let chararr = new Set()
+
+    if (!s.length) return 0
 
 
-        if (final.length < arr.length) {
-            final = arr
-            arr = []
+    while (end < s.length) {
+        if (!chararr.has(s[end])){
+            chararr.add(s[end])
+            end++
+            maxlength=Math.max(maxlength,chararr.size)
         }
 
         else{
-            arr=[]
+
+            chararr.delete(s[start])
+            start++
+
         }
+        
 
-        for (let j = i; j < s.length; j++) {
-
-            if (!arr.includes(s[j])) {
-                arr.push(s[j])
-            }
-
-            else {
-                break
-            }
-        }
+      }
+    return maxlength
 
 
-
-    }
-
-    
-        if (final.length < arr.length) return arr.length
-        else return final.length
 };
