@@ -33,5 +33,5 @@ var isValid = function(s) {
         }
     }
 
-    return arr.length === 0;
+if (arr.length === 0) return true; else return false
 };
