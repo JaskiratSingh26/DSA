@@ -11,18 +11,18 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-    let slow=head
+    let hasmap=new Map()
+    let cur=head
 
-    let fast=head
+    while(cur){
+   if(hasmap.has(cur)){
+    return true
+   }
+   else{
+    hasmap.set(cur)
+   }
 
-
-     while(fast && fast.next){
-        slow=slow.next
-        fast=fast.next.next
-        if(fast==slow) return true
-
-     }
-
-    return false
-
+        cur=cur.next
+    }
+    return false 
 };
