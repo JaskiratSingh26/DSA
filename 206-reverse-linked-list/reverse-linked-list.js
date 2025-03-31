@@ -11,16 +11,22 @@
  */
 var reverseList = function(head) {
     
-    let prev=null
-    let temp=head
-    let front=null
-    while(temp){
-        front=temp.next
-        temp.next=prev
-        prev=temp
-        temp=front
-    }
 
-    return prev
+let cur=head
+let trav=head
+let arr=[]
+
+ 
+ while(trav){
+    arr.push(trav.val)
+    trav=trav.next
+ }
+
+trav=cur
+ for(let i=arr.length-1;i>=0;i--){
+    trav.val=arr[i]
+    trav=trav.next
+ }
+ return cur 
 
 };
