@@ -6,16 +6,21 @@
 var twoSum = function(nums, target) {
 
 
-  let ans =[]
+  let hash=new Map()
+  let looking=0
 
-  for(let i=0;i<nums.length;i++){
+  for (let i=0;i<nums.length;i++){
+   looking=target-nums[i]
+   if(hash.has(looking)){
+    let data=hash.get(looking)
 
+    let arr=[i,data]
+    arr.sort()
+    return arr 
+   }
 
-    for(let j=i+1;j<nums.length;j++){
-        if(nums[i]+nums[j]===target){
-            ans=[i,j]
-        }
-    }
-  }
-return ans 
+   else{
+    hash.set(nums[i],i)
+   }
+  }  
 };
