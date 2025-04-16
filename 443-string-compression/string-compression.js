@@ -49,7 +49,7 @@ var compress = function (chars) {
     for (let i = 0; i < ans.length; i++) {
         chars[i] = ans[i];
     }
-    chars.length = ans.length; // Truncate the original array
+    
 
     let length = ans.length;
     return length;
