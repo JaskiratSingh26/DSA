@@ -4,22 +4,24 @@
  */
 var moveZeroes = function(nums) {
 
- let vlaues = []
-    let zeros = []
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !=0) {
-            vlaues.push(nums[i])
-        }
-        else {
-            zeros.push(nums[i])
-        }
+   
+
+let i=0
+let j=0
+
+while(j<nums.length){
+    if(nums[j]!=0){
+        [nums[i],nums[j]]=[nums[j],nums[i]]
+        i++
+        j++
     }
 
-    let ans =[...vlaues,...zeros]
-for(let i=0;i<ans.length;i++){
-    nums[i]=ans[i]
+   else{
+    j++
+   }
+
+    
 }
 
-return nums 
-    
+ return nums 
 };
