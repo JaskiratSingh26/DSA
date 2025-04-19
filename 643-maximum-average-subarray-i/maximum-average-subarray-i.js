@@ -32,8 +32,7 @@ var findMaxAverage = function (nums, k) {
     }
 
 
-
-  return parseFloat(maxnum.toFixed(5)); // 
+return maxnum
 
 
 };
