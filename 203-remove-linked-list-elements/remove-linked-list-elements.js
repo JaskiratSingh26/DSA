@@ -12,23 +12,36 @@
  */
 var removeElements = function (head, val) {
 
-if (!head) return null;
+    if (!head) return null
+    if (head.val == val) {
 
-    // Handle leading nodes with the target value
-    while (head && head.val === val) {
-        head = head.next;
-    }
-
-    let current = head;
-
-    while (current && current.next) {
-        if (current.next.val === val) {
-            current.next = current.next.next;
-            // IMPORTANT: We DO NOT advance 'current' here.
-        } else {
-            current = current.next;
+        while (head && head.val == val) {
+            head = head.next
         }
     }
+    let cur = head
 
-    return head;
+
+
+
+    while (cur && cur.next) {
+
+
+        if (cur.next.val == val) {
+            cur.next = cur.next.next
+        }
+
+  else{
+        cur = cur.next
+
+  }
+
+
+
+    }
+
+    return head
+   
+
+  
 };
