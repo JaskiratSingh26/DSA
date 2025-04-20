@@ -12,13 +12,15 @@ var pivotIndex = function(nums) {
 
 
  for(let i=0;i<nums.length;i++){
-    if(left==right-nums[i]){
+
+    right-=nums[i]
+    if(left==right){
         return i
     }
 
 
     left +=nums[i]
-    right-=nums[i]
+    
     
  }
 
