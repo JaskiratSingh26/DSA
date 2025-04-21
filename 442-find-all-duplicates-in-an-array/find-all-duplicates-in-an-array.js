@@ -12,7 +12,7 @@ var findDuplicates = function (nums) {
 
     for (let i = 0; i < nums.length; i++) {
         if (hashmap.has(nums[i])) {
-            hashmap.set(nums[i], hashmap.get(nums[i]) + 1)
+        ans.push(nums[i])
         }
 
         else {
@@ -20,9 +20,7 @@ var findDuplicates = function (nums) {
         }
     }
 
-    for (let [values, index] of hashmap) {
-        if (index != 1) ans.push(values)
-    }
+   
     return ans
 
 };
