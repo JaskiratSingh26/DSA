@@ -19,8 +19,7 @@ var postorderTraversal = function (root,res=[]) {
 
     postorderTraversal(node.left,res)
     postorderTraversal(node.right,res)
-    postorderTraversal(node.root,res)
-
+   
     res.push(node.val)
 
     return res
