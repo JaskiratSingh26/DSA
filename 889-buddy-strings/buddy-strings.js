@@ -7,12 +7,17 @@ var buddyStrings = function (s, goal) {
     if (s.length != goal.length) return false
 
     if (s == goal) {
-        let seen = new Set();
+        let set = new Set()
+
         for (let char of s) {
-            if (seen.has(char)) return true; // found a duplicate
-            seen.add(char);
+
+
+            if (set.has(char)) return true
+            set.add(char)
         }
+
         return false
+
 
     }
 
