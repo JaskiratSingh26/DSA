@@ -10,15 +10,30 @@
  * @param {TreeNode} root
  * @return {number}
  */
+var maxDepth = function (root) {
 
- let count=1
-var maxDepth = function(root) {
-    return depth(root)
+    // for doing this what i am doing is that i am checking the lvel roder and in the end it autmolcciy tell the dpeth 
+
+    let ans = []
+    let queue = []
+    let node = root
+    
+    if(node==null) return ans.length
+    queue.push(node)
+    
+
+    while(queue.length>0){
+        let subarr=[]
+        let size=queue.length
+        for(let i=0;i<size;i++){
+            node=queue.shift()
+            if(node.left) queue.push(node.left)
+            if(node.right) queue.push(node.right)
+            subarr.push(node.val)
+        }
+
+        ans.push(subarr)
+    }
+
+    return ans.length
 };
-function depth(root){
-    if(!root) return 0
-
-    let left=depth(root.left)
-    let right =depth(root.right)
-    return 1+Math.max(left,right)
-   }
