@@ -3,55 +3,50 @@
  * @return {number}
  */
 var compress = function (chars) {
+
     let ans = []
-    let count = 0
-    let char = chars[0]
+    let i = 0
+    let j = 1
+    let count = 1
 
-    for (let i = 0; i < chars.length; i++) {
+    if (chars.length == 1) return chars.length
 
-        if (char == chars[i]) {
+
+    while (j < chars.length) {
+
+        if (chars[j] == chars[i]) {
             count++
         }
-        else {
-            if (count == 1) {
-                ans.push(char)
-                char = chars[i]
-                count = 1
-            }
-            else {
-                ans.push(char)
-                const countStr = count.toString();
-                for (let j = 0; j < countStr.length; j++) {
-                    ans.push(countStr[j]);
+
+        if (chars[j] != chars[i]) {
+
+            ans.push(chars[i]);
+            if (count > 1) {
+                for (let ch of count.toString()) {
+                    ans.push(ch);
                 }
-                char = chars[i]
-                count = 1
-
             }
+            count = 1;
+            i = j;
+
+
         }
-
-
+        j++
     }
 
-    if (count == 1) {
-
-        ans.push(char)
-    }
-    else {
-        ans.push(char)
-        const countStr = count.toString();
-        for (let j = 0; j < countStr.length; j++) {
-            ans.push(countStr[j]);
+    ans.push(chars[i]);
+    if (count > 1) {
+        for (let ch of count.toString()) {
+            ans.push(ch);
         }
     }
 
-    // Modify the original 'chars' array in-place
-    for (let i = 0; i < ans.length; i++) {
-        chars[i] = ans[i];
-    }
-    
 
-    let length = ans.length;
-    return length;
- 
+    for (let k = 0; k < ans.length; k++) {
+        chars[k] = ans[k];
+    }
+
+    return ans.length;
+
+
 };
