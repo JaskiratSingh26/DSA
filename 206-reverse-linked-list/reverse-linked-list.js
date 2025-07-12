@@ -11,20 +11,21 @@
  */
 var reverseList = function(head) {
     
+if(!head) return null
 
-    if(head==null)return null
-    let temp=head
-    let prev=null
-    let cur=head.next
+if(!head.next) return head 
 
-    while(temp){
-        cur=temp.next
-        temp.next=prev
-        prev=temp
-        temp=cur
-    }
 
-    return prev 
+let prev=null
+let cur=head
+
+while(cur){
+    let temp=cur.next
+    cur.next=prev
+    prev=cur
+    cur=temp
+}
+return prev
 
 
 };
