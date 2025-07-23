@@ -10,15 +10,20 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var preorderTraversal = function(root,res=[]) {
-    if(!root){
-        return []
+var preorderTraversal = function (root) {
+    if (!root) return []
+    let stack = [root]
+    let ans = []
+    while (stack.length > 0) {
+        let node = stack.pop()
+        ans.push(node.val)
+              // Push right first so that left is processed first (LIFO behavior)
+        if (node.right) stack.push(node.right);
+        if (node.left) stack.push(node.left);
+
+
+
     }
+    return ans
 
-    res.push(root.val)
-    preorderTraversal(root.left,res)
-    preorderTraversal(root.right,res)
-
-    return res
-    
 };
