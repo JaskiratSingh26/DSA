@@ -3,17 +3,20 @@
  * @return {boolean}
  */
 var isPalindrome = function (x) {
-    let string = new String(x)
-    let end = []
+    let rev = []
 
-    for (let i = 0; i < string.length; i++) {
-        end.unshift(string[i])
+    let s = x.toString()
+    s = s.split('')
+
+    for (let i = 0; i < s.length; i++) {
+
+         rev.unshift(s[i])
+        
+
     }
 
+    rev=rev.join('')
+    return rev==x
 
 
-    for (let i = 0; i < string.length; i++) {
-        if (string[i] != end [i]) return false
-    }
-    return true
 };
