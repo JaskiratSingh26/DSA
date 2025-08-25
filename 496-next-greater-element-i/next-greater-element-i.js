@@ -5,22 +5,25 @@
  */
 var nextGreaterElement = function (nums1, nums2) {
 
+
     let ans = []
 
     for (let i = 0; i < nums1.length; i++) {
-        let index = nums2.indexOf(nums1[i])
+        let cur = nums1[i]
+        let index = nums2.indexOf(cur)
+        let value=-1
 
-        let res = -1
-        let j = index
-        while (j < nums2.length) {
-            if (nums2[j] > nums1[i]) {
-                res = nums2[j]
+        for (let j = index + 1; j < nums2.length; j++) {
+            if (nums2[j] > cur) {
+                
+                value=nums2[j]
                 break
             }
-            j++
         }
-        ans.push(res)
-    }
+        ans.push(value)
 
-return ans 
+
+    }
+    return ans 
+
 };
