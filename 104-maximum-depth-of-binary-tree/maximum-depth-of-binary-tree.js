@@ -1,4 +1,3 @@
-
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -12,24 +11,31 @@
  * @return {number}
  */
 var maxDepth = function (root) {
-    if (!root) return 0
-    let res = []
-    let cur = root
-    let queue = [cur]
 
+    if(!root) return 0
+    let temp = root
+    let queue = [temp]
+    let ans = []
+    
 
-    while (queue.length != 0) {
-        let n = queue.length
-        let node;
+    while (queue.length > 0) {
+        let len = queue.length
         let subarr = []
-        for (let i = 0; i < n; i++) {
-            node = queue.shift()
-            if (node.left) queue.push(node.left)
-            if (node.right) queue.push(node.right)
-            subarr.push(node.val)
+        for (let i = 0; i < len; i++) {
+
+            let node = queue.shift()
+
+            subarr.push(node)
+
+            if (node && node.left ) { queue.push(node.left) }
+            if (node &&node.right) { queue.push(node.right) }
         }
-        res.push(subarr)
+
+
+        ans.push(subarr)
     }
 
-    return res.length
+
+let maxdepth=ans.length
+return maxdepth
 };
