@@ -3,34 +3,24 @@
  * @return {number[]}
  */
 var productExceptSelf = function (nums) {
-     let prefix = []
-    let sufix = []
-    let calpr = 1
-    let calsr = 1
-    let ans=[]
-   
+    let left = [nums[0]]
+    let right = [nums[nums.length - 1]]
+    let ans = []
+
+    for (let i = 1; i < nums.length; i++) {
+        left.push(nums[i] * left[left.length - 1])
+    }
+
+    for (let i = nums.length - 2; i >= 0; i--) {
+        right.unshift(nums[i] * right[0])
+    }
 
     for (let i = 0; i < nums.length; i++) {
-        calpr *= nums[i]
-        prefix.push(calpr)
-    }
+        if (i == 0) ans.push(right[1])
+        else if( i==nums.length-1) ans.push(left[i-1])
+         else ans.push(left[i-1]*right[i+1])
 
-    for (let i = (nums.length) - 1; i >= 0; i--) {
-        calsr *= nums[i]
-        sufix.unshift(calsr)
     }
-    
-   
- if (nums.length === 1) {
-        return [1];
-    }
-
-    ans.push(sufix[1]); // First element is suffix[1]
-    for (let i = 1; i < nums.length - 1; i++) {
-        ans.push(prefix[i - 1] * sufix[i + 1]);
-    }
-    ans.push(prefix[nums.length-2]);
-return ans 
-
+    return ans 
 
 };
