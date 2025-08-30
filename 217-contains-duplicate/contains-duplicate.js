@@ -2,17 +2,12 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var containsDuplicate = function(nums) {
-   let hasmap=new Map()
+var containsDuplicate = function (nums) {
+    let set = new Set()
+    for (let i = 0; i < nums.length; i++) {
+        if(set.has(nums[i])) return true 
+        set.add(nums[i])
 
-   for(let i=0;i<nums.length;i++){
-    if(hasmap.has(nums[i])) return true
-
-    else{
-        hasmap.set(nums[i],0)
     }
-   }
-
-   return false 
-    
+    return false
 };
