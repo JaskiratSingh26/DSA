@@ -3,15 +3,31 @@
  * @return {number[]}
  */
 var dailyTemperatures = function (temperatures) {
-    let ans = new Array(temperatures.length).fill(0)
+    let n = temperatures.length
+
+    let ans = new Array(n).fill(0)
 
     let stack = []
-    for (let i = 0; i < temperatures.length; i++) {
-        while (stack.length && temperatures[i] > temperatures[stack[stack.length - 1]]) {
-      let prev=stack.pop()
-      ans[prev]=i-prev
+
+    for (let i = 0; i < n; i++) {
+
+        while (temperatures[stack[stack.length-1]] < temperatures[i] && stack.length > 0) {
+            let top = stack.pop()
+            ans[top]=i-top
+
+
+
+
         }
+
+
         stack.push(i)
+
+
+
+
     }
-    return  ans 
+
+
+    return ans
 };
