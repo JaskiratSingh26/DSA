@@ -7,27 +7,20 @@
  * var guess = function(num) {}
  */
 
-/**id=0
+/**
  * @param {number} n
  * @return {number}
  */
 var guessNumber = function(n) {
-    let l=1
-    let r=n
-    let mid=0
+      let l=1
+        let h=n
+        while(l<=h){
+            let mid =Math.floor(l+((h-l)/2))
 
-    while(l<=r){
-      mid=Math.floor((l+r)/2)
-      let res=guess(mid)
-      if(res==0){
-        return mid
-
-      }
-      else if (res==-1){
-        r=mid-1
-      }
-      else{
-        l=mid+1
-      }
-    }
+            let number=guess(mid)
+            if(number==0) return mid
+            else if(number==-1)h=mid-1
+            else l=mid+1
+        }
+    
 };
